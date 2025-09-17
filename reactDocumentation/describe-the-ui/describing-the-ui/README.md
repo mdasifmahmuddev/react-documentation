@@ -1,12 +1,71 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📘 React Export / Import Summary  
 
-Currently, two official plugins are available:
+1️⃣ Syntax  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Type      | Export Statement                           | Import Statement                                |
+|-----------|-------------------------------------------|------------------------------------------------|
+| **Default** | `export default function Button() {}`      | `import Button from './Button.js';`             |
+| **Named**   | `export function Button() {}`              | `import { Button } from './Button.js';`         |
 
-## Expanding the ESLint configuration
+----------------------------------------------------------
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2️⃣ Export / Import Techniques  
+
+🔹 Default Export  
+- When a file has only one component  
+- You can use any name while importing  
+
+// Profile.js
+export default function Profile() { ... }
+
+// App.js
+import Profile from './Profile.js';
+
+----------------------------------------------------------
+
+🔹 Named Export  
+- When a file has multiple components/variables  
+- The name must match exactly while importing  
+
+// Gallery.js
+export function Profile() { ... }
+export function Gallery() { ... }
+
+// App.js
+import { Profile, Gallery } from './Gallery.js';
+
+----------------------------------------------------------
+
+🔹 Usage Rule  
+- Small / single component file → Default Export  
+- Large / multiple component file → Named Export  
+- A file can have both Default + Named exports, but use carefully  
+
+----------------------------------------------------------
+
+🔹 Root Component  
+- Usually App.js  
+- Renders all other components  
+
+----------------------------------------------------------
+
+3️⃣ Writing Markup with JSX  
+
+👉 JSX is HTML-like syntax inside JavaScript  
+
+function Welcome() {
+  return <h1>Hello, World!</h1>;
+}
+
+----------------------------------------------------------
+
+4️⃣ JavaScript in JSX with Curly Braces {}  
+
+👉 Use {} to write JavaScript expressions inside JSX  
+
+const name = "Asif";
+
+function Welcome() {
+  return <h1>Hello, {name}!</h1>;
+}
