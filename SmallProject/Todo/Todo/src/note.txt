@@ -1,0 +1,23 @@
+Accessibility & Semantics
+
+<form> হলো semantic HTML element, মানে ব্রাউজার, স্ক্রিন রিডার, SEO engine সব বুঝতে পারে “এটা ফর্ম”।
+
+<div onClick={...}> দিলে সেটা দেখতে ফর্ম হলেও আসলে form behavior, accessibility, keyboard shortcuts কাজ করে না।
+
+
+
+২. কেন method="post" আর e.preventDefault() একসাথে?
+
+HTML এর ডিফল্ট হলো → ফর্ম সাবমিট করলে পুরো পেজ reload হবে।
+
+React SPA (Single Page App) এ আমরা reload চাই না, তাই e.preventDefault() লিখি।
+
+তবুও তারা method="post" রেখে দেয়, যেন form এর behavior semantic আর HTML standard অনুযায়ী থাকে।
+
+
+   //  সংক্ষেপে:
+
+//DOM element = HTML এর JS object form (browser এর internal tree)।
+//এটা important কারণ JS → HTML interaction এর মূল পথ।
+//কিন্তু React এ আমরা সরাসরি DOM কম ব্যবহার করি, কারণ React state দিয়ে manage করে।
+    
